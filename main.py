@@ -107,6 +107,7 @@ def main_dijkstra(num_nodes, node_saida, node_chegada, pesos_aleatorios):
 
     return distancia
 
+
 def executar_algoritmo(num_nodes, node_saida, node_chegada, pesos_aleatorios):
     print("Executando algoritmo...")
     res = main_dijkstra(int(num_nodes), int(node_saida),
@@ -125,3 +126,50 @@ def executar_algoritmo(num_nodes, node_saida, node_chegada, pesos_aleatorios):
             else:
                 resultado += str(nodes[i]) + "]\n"
     return resultado
+
+
+def main():
+    janela = tk.Tk()
+    janela.title("Configuração do Algoritmo")
+    janela.geometry("500x550")
+
+    largura_janela = 500
+    altura_janela = 550
+    largura_tela = janela.winfo_screenwidth()
+    altura_tela = janela.winfo_screenheight()
+    pos_x = largura_tela // 2 - largura_janela // 2
+    pos_y = altura_tela // 2 - altura_janela // 2
+    janela.geometry(f"{largura_janela}x{altura_janela}+{pos_x}+{pos_y}")
+
+    label_num_nodes = tk.Label(janela, text="Número de nós:")
+    label_num_nodes.place(x=10, y=10)
+    entrada_num_nodes = tk.Entry(janela)
+    entrada_num_nodes.place(x=150, y=10)
+
+    label_node_saida = tk.Label(janela, text="Nó de saída:")
+    label_node_saida.place(x=10, y=40)
+    entrada_node_saida = tk.Entry(janela)
+    entrada_node_saida.place(x=150, y=40)
+    label_node_chegada = tk.Label(janela, text="Nó de chegada:")
+    label_node_chegada.place(x=10, y=70)
+    entrada_node_chegada = tk.Entry(janela)
+    entrada_node_chegada.place(x=150, y=70)
+
+    label_pesos = tk.Label(janela, text="Usar pesos:")
+    label_pesos.place(x=10, y=100)
+    combo_pesos = ttk.Combobox(janela, values=["1", "Aleatórios"])
+    combo_pesos.current(0)
+    combo_pesos.place(x=150, y=100)
+
+    botao_executar = tk.Button(janela, text="Executar", command=lambda: label_resultado.config(text=executar_algoritmo(
+        entrada_num_nodes.get(), entrada_node_saida.get(), entrada_node_chegada.get(), combo_pesos.get() == "Aleatórios")))
+    botao_executar.place(x=200, y=150)
+
+    label_resultado = tk.Label(janela, text="")
+    label_resultado.place(x=10, y=200)
+
+    janela.mainloop()
+
+
+if __name__ == '__main__':
+    main()
