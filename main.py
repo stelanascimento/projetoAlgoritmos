@@ -106,3 +106,22 @@ def main_dijkstra(num_nodes, node_saida, node_chegada, pesos_aleatorios):
     plt.show()
 
     return distancia
+
+def executar_algoritmo(num_nodes, node_saida, node_chegada, pesos_aleatorios):
+    print("Executando algoritmo...")
+    res = main_dijkstra(int(num_nodes), int(node_saida),
+                        int(node_chegada), pesos_aleatorios)
+
+    resultado = ""
+
+    if res[0] == -1:
+        resultado += "Não existe caminho entre os nodes!\n"
+    else:
+        resultado += "Peso total: " + str(res[0]) + "\nCaminho: ["
+        nodes = res[1]
+        for i in range(len(nodes)):
+            if i < len(nodes) - 1:
+                resultado += str(nodes[i]) + ", "
+            else:
+                resultado += str(nodes[i]) + "]\n"
+    return resultado
