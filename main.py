@@ -1,3 +1,10 @@
+import random
+from tkinter import ttk
+import tkinter as tk
+import networkx as nx
+import matplotlib.pyplot as plt
+
+
 class Grafo:
     def __init__(self, n):
         self.m = n
