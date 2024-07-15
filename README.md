@@ -1,5 +1,5 @@
-Projeto: Implementação do Algoritmo de Dijkstra com Interface Gráfica em Tkinter
-Descrição do Projeto
+#Projeto: Implementação do Algoritmo de Dijkstra com Interface Gráfica em Tkinter
+#Descrição do Projeto
 Este projeto implementa o algoritmo de Dijkstra para encontrar o caminho mais curto em um grafo utilizando uma interface gráfica com Tkinter. A base de dados utilizada é a "Email network of a large European Research Institution", que consiste em uma rede de e-mails entre pessoas em uma instituição de pesquisa na Europa. A rede é direcionada, mas para a implementação do algoritmo, considera-se o grafo não direcionado.
 
 Base de Dados
